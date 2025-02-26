@@ -71,6 +71,7 @@
                     <li class="nav-item"><a class="nav-link" href="#fotos">Fotos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#feedbacks">Feedbacks</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
                 </ul>
             </div>
         </div>
@@ -78,14 +79,29 @@
 
     <div class="container mt-4">
         <section id="fotos">
-            <h2 class="section-title">Galeria</h2>
+            <h2 class="section-title">Fotos</h2>
             <div id="carouselFotos" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="imgs/chacara1.png" class="d-block w-100" alt="Foto 1">
+                        <img src="imgs/01.jpg" class="d-block w-100" alt="Foto 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="imgs/chacara1.png" class="d-block w-100" alt="Foto 1">
+                        <img src="imgs/02.jpg" class="d-block w-100" alt="Foto 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/03.jpg" class="d-block w-100" alt="Foto 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/04.jpg" class="d-block w-100" alt="Foto 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/05.jpg" class="d-block w-100" alt="Foto 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/06.jpg" class="d-block w-100" alt="Foto 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/07.jpg" class="d-block w-100" alt="Foto 1">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselFotos" data-bs-slide="prev">
@@ -116,6 +132,62 @@
                     <div class="card p-3">
                         <p>"Adorei e voltarei em breve!"</p>
                         <h6 class="text-muted">- Ana Costa</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="container mt-5">
+            <h2 class="text-center mb-4">Informações sobre o espaço</h2>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card" onclick="$('#modalQuartos').modal('show')">
+                        <img src="imgs/quarto06.jpg" class="card-img-top" alt="Quartos">
+                        <div class="card-body">
+                            <h5 class="card-title">Quartos</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" onclick="$('#modalLazer').modal('show')">
+                        <img src="imgs/lazer2.jpg" class="card-img-top" alt="Área de Lazer">
+                        <div class="card-body">
+                            <h5 class="card-title">Área de Lazer</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" onclick="$('#modalCozinha').modal('show')">
+                        <img src="cozinha.jpg" class="card-img-top" alt="Cozinha">
+                        <div class="card-body">
+                            <h5 class="card-title">Cozinha</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center mt-3">
+                <div class="col-md-4">
+                    <div class="card" onclick="$('#modalPiscina').modal('show')">
+                        <img src="piscina.jpg" class="card-img-top" alt="Piscina">
+                        <div class="card-body">
+                            <h5 class="card-title">Piscina</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" onclick="$('#modalBanheiro').modal('show')">
+                        <img src="banheiro.jpg" class="card-img-top" alt="Banheiro">
+                        <div class="card-body">
+                            <h5 class="card-title">Banheiro</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" onclick="$('#modalRegras').modal('show')">
+                        <img src="regras.jpg" class="card-img-top" alt="Regras">
+                        <div class="card-body">
+                            <h5 class="card-title">Regras</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -172,23 +244,153 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalQuartos" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Quartos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselQuartos" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="imgs/quarto01.jpg" class="d-block w-100" alt="Quarto 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imgs/quarto02.jpg" class="d-block w-100" alt="Quarto 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imgs/quarto04.jpg" class="d-block w-100" alt="Quarto 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imgs/quarto05.jpg" class="d-block w-100" alt="Quarto 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselQuartos" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselQuartos" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <p class="text-center mt-3">Quartos com camas e banheiros individuais</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalLazer" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Área de Lazer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselLazer" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="imgs/lazer1.jpg" class="d-block w-100" alt="lazer 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imgs/lazer2.jpg" class="d-block w-100" alt="lazer 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imgs/lazer3.jpg" class="d-block w-100" alt="lazer 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselLazer" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselLazer" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <p class="text-center mt-3">Area de lazer com mesa de bilhar, pimbolim, cama elastica e piscina</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCozinha" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cozinha</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="cozinha.jpg" class="img-fluid" alt="Cozinha">
+                    <p>Cozinha moderna com eletrodomésticos completos e utensílios para preparar qualquer refeição.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPiscina" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Piscina</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="piscina.jpg" class="img-fluid" alt="Piscina">
+                    <p>Piscina grande com área para crianças e adultos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalBanheiro" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Banheiro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="banheiro.jpg" class="img-fluid" alt="Banheiro">
+                    <p>Banheiros equipados com chuveiros modernos e higiene impecável.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalRegras" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Regras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Check-in: 14h | Check-out: 12h</li>
+                        <li>Não permitido fumar dentro dos quartos.</li>
+                        <li>Silêncio entre 22h e 7h.</li>
+                        <li>Uso da piscina até às 20h.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2025 Chácara dos Sonhos. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        window.addEventListener("scroll", function() {
-            let button = document.querySelector(".back-to-top");
-            if (window.scrollY > 200) {
-                button.style.display = "block";
-            } else {
-                button.style.display = "none";
-            }
-        });
-        
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function() {
+        let modalId = this.getAttribute('onclick').match(/#(\w+)/)[1]; 
+        let modal = new bootstrap.Modal(document.getElementById(modalId));
+        modal.show();
+    });
+});
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
