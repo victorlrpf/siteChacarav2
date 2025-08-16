@@ -112,6 +112,18 @@
         background-color: #222;
         color: white;
       }
+
+      .cardModificado {
+        width: 44rem; /* define largura fixa (ou usa col do bootstrap) */
+        height: 15rem; /* altura fixa */
+        overflow: hidden;
+      }
+
+      .cardModificado img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* preenche cortando se necessário */
+      }
     </style>
   </head>
   <body>
@@ -147,11 +159,6 @@
                 <i class="fas fa-info-circle"></i> Sobre
               </a>
             </li>
-            <li class="nav-item">
-              <button onclick="alternarModo()" class="btn">
-                🌙 Modo Escuro
-              </button>
-            </li>
           </ul>
         </div>
       </div>
@@ -161,30 +168,38 @@
       <section id="fotos">
         <h2 class="section-title">Fotos</h2>
         <div id="carouselFotos" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="imgs/01.jpg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="imgs/02.jpg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="imgs/img03.jpg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="imgs/04.jpg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="imgs/4.jpg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="imgs/05.jpg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="imgs/06.jpg" class="d-block w-100" alt="Foto 1" />
-            </div>
-            <div class="carousel-item">
-              <img src="imgs/07.jpg" class="d-block w-100" alt="Foto 1" />
+          <div class="card">
+            <div class="card-body">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="imgs/01.jpg" class="d-block w-100" alt="Foto 1" />
+                </div>
+                <div class="carousel-item">
+                  <img src="imgs/02.jpg" class="d-block w-100" alt="Foto 1" />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="imgs/img03.jpg"
+                    class="d-block w-100"
+                    alt="Foto 1"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img src="imgs/04.jpg" class="d-block w-100" alt="Foto 1" />
+                </div>
+                <div class="carousel-item">
+                  <img src="imgs/4.jpg" class="d-block w-100" alt="Foto 1" />
+                </div>
+                <div class="carousel-item">
+                  <img src="imgs/05.jpg" class="d-block w-100" alt="Foto 1" />
+                </div>
+                <div class="carousel-item">
+                  <img src="imgs/06.jpg" class="d-block w-100" alt="Foto 1" />
+                </div>
+                <div class="carousel-item">
+                  <img src="imgs/07.jpg" class="d-block w-100" alt="Foto 1" />
+                </div>
+              </div>
             </div>
           </div>
           <button
@@ -303,9 +318,10 @@
               <p>Email: contato@chacaradossonhos.com</p>
               <p>Telefone: (99) 99999-9999</p>
               <a
-                href="https://wa.me/5519992802691"
-                target="_blank"
+                href="#"
                 class="btn btn-success mb-3"
+                data-bs-toggle="modal"
+                data-bs-target="#whatsappModal"
               >
                 <i class="bi bi-whatsapp"></i> Fale Conosco
               </a>
@@ -333,6 +349,79 @@
           </div>
         </div>
       </section>
+    </div>
+
+    <div
+      class="modal fade"
+      id="whatsappModal"
+      tabindex="-1"
+      aria-labelledby="whatsappModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="whatsappModalLabel">Enviar Mensagem</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="whatsappForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nome</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="Digite seu nome"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensagem</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="3"
+                  placeholder="Digite sua mensagem..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="startDate" class="form-label">Data Inicial</label>
+                <input
+                  type="date"
+                  id="startDate"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="endDate" class="form-label">Data Final</label>
+                <input type="date" id="endDate" class="form-control" required />
+                <div
+                  class="text-danger mt-1"
+                  id="dateError"
+                  style="display: none"
+                >
+                  ⚠️ A data final não pode ser menor que a inicial.
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-success">
+                Enviar pelo WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div
@@ -682,10 +771,48 @@
       }
       window.addEventListener("scroll", revelarAoRolar);
 
-      // Modo Escuro (Dark Mode)
-      function alternarModo() {
-        document.body.classList.toggle("dark-mode");
-      }
+      const form = document.getElementById("whatsappForm");
+      const startDateInput = document.getElementById("startDate");
+      const endDateInput = document.getElementById("endDate");
+      const dateError = document.getElementById("dateError");
+      const messageInput = document.getElementById("message");
+      const nameInput = document.getElementById("name");
+
+      // Validação: data final não pode ser menor que a inicial
+      startDateInput.addEventListener("change", () => {
+        endDateInput.min = startDateInput.value; // bloqueia datas menores
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        const startDate = startDateInput.value;
+        const endDate = endDateInput.value;
+
+        if (endDate < startDate) {
+          dateError.style.display = "block";
+          return;
+        } else {
+          dateError.style.display = "none";
+        }
+
+        const phoneNumber = "5519992802691"; // seu número
+        const text = `Olá, meu nome é ${name}!%0A${message}%0A📅 Data inicial: ${startDate}%0A📅 Data final: ${endDate}`;
+
+        const url = `https://wa.me/${phoneNumber}?text=${text}`;
+
+        window.open(url, "_blank"); // abre o WhatsApp
+      });
+
+      // Sempre que abrir o modal, limpa os campos
+      const whatsappModal = document.getElementById("whatsappModal");
+      whatsappModal.addEventListener("show.bs.modal", () => {
+        form.reset();
+        dateError.style.display = "none";
+        endDateInput.min = "";
+      });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
