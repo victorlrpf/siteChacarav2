@@ -246,68 +246,56 @@
       </section>
 
       <section id="sobre" class="container mt-5">
-        <h2 class="text-center mb-4">Informações sobre o espaço</h2>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <div
-              class="card p-4 shadow-lg border-0 rounded-4"
-              onclick="$('#modalQuartos').modal('show')"
-            >
-              <i
-                class="fa-solid fa-bed text-primary mb-3"
-                style="font-size: 3rem"
-              ></i>
-              <div class="card-body">
-                <h5 class="card-title">Quartos</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div
-              class="card p-4 shadow-lg border-0 rounded-4"
-              onclick="$('#modalLazer').modal('show')"
-            >
-              <i
-                class="fa-solid fa-water-ladder text-success mb-3"
-                style="font-size: 3rem"
-              ></i>
-              <div class="card-body">
-                <h5 class="card-title">Área de Lazer</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div
-              class="card p-4 shadow-lg border-0 rounded-4"
-              onclick="$('#modalBanheiro').modal('show')"
-            >
-              <i
-                class="fa-solid fa-toilet text-danger mb-3"
-                style="font-size: 3rem"
-              ></i>
-              <div class="card-body">
-                <h5 class="card-title">Banheiro</h5>
-              </div>
-            </div>
-          </div>
+  <h2 class="text-center mb-4">Informações sobre o espaço</h2>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="card p-4 shadow-lg border-0 rounded-4" 
+           data-bs-toggle="modal" 
+           data-bs-target="#modalQuartos">
+        <i class="fa-solid fa-bed text-primary mb-3" style="font-size: 3rem"></i>
+        <div class="card-body">
+          <h5 class="card-title">Quartos</h5>
         </div>
-        <div class="row justify-content-center text-center mt-3">
-          <div class="col-md-4 d-flex justify-content-center">
-            <div
-              class="card p-4 shadow-lg border-0 rounded-4"
-              onclick="$('#modalRegras').modal('show')"
-            >
-              <i
-                class="fa-solid fa-circle-exclamation text-warning mb-3"
-                style="font-size: 3rem"
-              ></i>
-              <div class="card-body">
-                <h5 class="card-title">Regras</h5>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-4 shadow-lg border-0 rounded-4" 
+           data-bs-toggle="modal" 
+           data-bs-target="#modalLazer">
+        <i class="fa-solid fa-water-ladder text-success mb-3" style="font-size: 3rem"></i>
+        <div class="card-body">
+          <h5 class="card-title">Área de Lazer</h5>
         </div>
-      </section>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-4 shadow-lg border-0 rounded-4" 
+           data-bs-toggle="modal" 
+           data-bs-target="#modalBanheiro">
+        <i class="fa-solid fa-toilet text-danger mb-3" style="font-size: 3rem"></i>
+        <div class="card-body">
+          <h5 class="card-title">Banheiro</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center text-center mt-3">
+    <div class="col-md-4 d-flex justify-content-center">
+      <div class="card p-4 shadow-lg border-0 rounded-4" 
+           data-bs-toggle="modal" 
+           data-bs-target="#modalRegras">
+        <i class="fa-solid fa-circle-exclamation text-warning mb-3" style="font-size: 3rem"></i>
+        <div class="card-body">
+          <h5 class="card-title">Regras</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <section id="contato" class="mt-5">
         <h2 class="section-title">Contato</h2>
@@ -731,6 +719,7 @@
     <footer>
       <p>&copy; 2025 Chácara dos Sonhos. Todos os direitos reservados.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
       document.querySelectorAll(".card").forEach((card) => {
@@ -771,6 +760,14 @@
       }
       window.addEventListener("scroll", revelarAoRolar);
 
+      import { createClient } from '@supabase/supabase-js'
+      // Inicializa o Supabase corretamente
+      const supabaseUrl = "https://ijeylnkppntbzzquhfes.supabase.co";
+      const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqZXlsbmtwcG50Ynp6cXVoZmVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUzNTAyMDYsImV4cCI6MjA3MDkyNjIwNn0.GMsr2IbAiy7d6Av2ebYfk71_rOeR_VTDi-OPnX8CAvo";
+      const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+      // Elementos do modal
       const form = document.getElementById("whatsappForm");
       const startDateInput = document.getElementById("startDate");
       const endDateInput = document.getElementById("endDate");
@@ -780,10 +777,10 @@
 
       // Validação: data final não pode ser menor que a inicial
       startDateInput.addEventListener("change", () => {
-        endDateInput.min = startDateInput.value; // bloqueia datas menores
+        endDateInput.min = startDateInput.value;
       });
 
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const name = nameInput.value.trim();
@@ -798,21 +795,38 @@
           dateError.style.display = "none";
         }
 
-        const phoneNumber = "5519992802691"; // seu número
+        // 1️⃣ Salva no Supabase
+        const { error } = await supabase.from("reservas").insert([
+          {
+            nome: name,
+            mensagem: message,
+            data_inicial: startDate,
+            data_final: endDate,
+            status: 2, // Interessado por padrão
+          },
+        ]);
+
+        if (error) {
+          console.error("Erro ao salvar no Supabase:", error.message);
+          alert("Ocorreu um erro ao salvar. Tente novamente.");
+          return;
+        }
+
+        // 2️⃣ Abre WhatsApp
+        const phoneNumber = "5519992802691";
         const text = `Olá, meu nome é ${name}!%0A${message}%0A📅 Data inicial: ${startDate}%0A📅 Data final: ${endDate}`;
-
         const url = `https://wa.me/${phoneNumber}?text=${text}`;
-
-        window.open(url, "_blank"); // abre o WhatsApp
+        window.open(url, "_blank");
       });
 
-      // Sempre que abrir o modal, limpa os campos
+      // Limpa os campos ao abrir o modal
       const whatsappModal = document.getElementById("whatsappModal");
       whatsappModal.addEventListener("show.bs.modal", () => {
         form.reset();
         dateError.style.display = "none";
         endDateInput.min = "";
       });
+    </script>      
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
